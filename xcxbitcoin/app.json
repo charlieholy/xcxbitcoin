@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/optional/optional",
+    "pages/kanpan/kanpan",
+    "pages/haogu/haogu",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "BitCoin",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#09bb07",
+    "color": "#353535",
+    "list": [
+      {
+        "pagePath": "pages/optional/optional",
+        "text": "okex",
+        "iconPath": "images/tab_optional_nor.png",
+        "selectedIconPath": "images/tab_optional_sel.png"
+      },
+      {
+        "pagePath": "pages/kanpan/kanpan",
+        "text": "huopro",
+        "iconPath": "images/tab_kanpan_nor.png",
+        "selectedIconPath": "images/tab_kanpan_sel.png"
+      },
+      {
+        "pagePath": "pages/haogu/haogu",
+        "text": "bitstamp",
+        "iconPath": "images/tab_haogu_nor.png",
+        "selectedIconPath": "images/tab_haogu_sel.png"
+      }
+    ]
+  }
+}
