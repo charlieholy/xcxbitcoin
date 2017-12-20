@@ -1,7 +1,3 @@
-// pages/haogu/haogu.js
-var Api = require('../../api/api.js');
-var Util = require('../../utils/util.js')
-
 Page({
   data: {
     array: []
@@ -9,7 +5,27 @@ Page({
 
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    this.getData()
+    wx.request({
+      url: 'http://localhost:12306/v1/order/orders/place' ,   
+      data: {"aa":"bb"},
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+      // header: {}, // 设置请求的 header  
+      success: function (res) {
+        console.log(res.data.result)
+        that.setData({
+          Industry: res.data.result
+        })
+      },
+      fail: function () {
+        // fail  
+        console.log("fail")
+      },
+      complete: function () {
+        // complete  
+        console.log("complete")
+      }
+    }) 
+
   },
 
   onReady: function () {
@@ -40,27 +56,4 @@ Page({
     }
   },
 
-  getData: function () {
-    var that = this
-    Api.haogu.getHaoguList({
-      listType: []
-    }).then(function (results) {
-      wx.stopPullDownRefresh()
-      that.data.array = results;
-      that.setData(that.data)
-    }, function (res) {
-      wx.stopPullDownRefresh()
-    })
-  },
-
-  onStockDetailEvent: function (e) {
-    var stock = e.currentTarget.dataset.stock
-    Util.gotoQuote(stock.goodsId, stock.name, stock.code)
-  },
-
-  onStockSearchEvent: function (e) {
-    wx.navigateTo({
-      url: '../search/search'
-    })
-  }
 })
