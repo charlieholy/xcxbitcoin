@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/optional/optional",
-    "pages/kanpan/kanpan",
-    "pages/haogu/haogu",
+    "pages/okex/okex",
+    "pages/huopro/huopro",
+    "pages/bitstamp/bitstamp",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -17,19 +17,19 @@
     "color": "#353535",
     "list": [
       {
-        "pagePath": "pages/optional/optional",
+        "pagePath": "pages/okex/okex",
         "text": "okex",
         "iconPath": "images/tab_optional_nor.png",
         "selectedIconPath": "images/tab_optional_sel.png"
       },
       {
-        "pagePath": "pages/kanpan/kanpan",
+        "pagePath": "pages/huopro/huopro",
         "text": "huopro",
         "iconPath": "images/tab_kanpan_nor.png",
         "selectedIconPath": "images/tab_kanpan_sel.png"
       },
       {
-        "pagePath": "pages/haogu/haogu",
+        "pagePath": "pages/bitstamp/bitstamp",
         "text": "bitstamp",
         "iconPath": "images/tab_haogu_nor.png",
         "selectedIconPath": "images/tab_haogu_sel.png"
