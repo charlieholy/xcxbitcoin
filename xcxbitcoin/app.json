@@ -3,6 +3,7 @@
     "pages/okex/okex",
     "pages/huopro/huopro",
     "pages/bitstamp/bitstamp",
+    "pages/bitfinex/bitfinex",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -33,6 +34,12 @@
         "text": "bitstamp",
         "iconPath": "images/tab_haogu_nor.png",
         "selectedIconPath": "images/tab_haogu_sel.png"
+      },
+      {
+        "pagePath": "pages/bitfinex/bitfinex",
+        "text": "bitfinex",
+        "iconPath": "images/tab_optional_nor.png",
+        "selectedIconPath": "images/tab_optional_sel.png"
       }
     ]
   }
