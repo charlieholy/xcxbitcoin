@@ -36,7 +36,7 @@ Page({
     //连接成功
     wx.onSocketOpen(function () {
       wx.sendSocketMessage({
-        data:JSON.stringify(sub_depth)
+       // data:JSON.stringify(sub_depth)
       })
     })
 
