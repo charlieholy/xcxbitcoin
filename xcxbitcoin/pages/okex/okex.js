@@ -5,7 +5,7 @@ var intervalId = 0;
 
 var isLongTaping = false;
 
-var sub_depth = { 'event': 'addChannel', 'channel': 'ok_sub_spot_btc_usdt_depth_5', "parameters": {} }
+var sub_depth = { "cmd": "depth", "data": { "subsribeTick": true } }
 
 var intervalId = 0;
 
@@ -30,25 +30,55 @@ Page({
     var that = this;
     //建立连接
     wx.connectSocket({
-      url: "wss://real.okex.com:10441/websocket",
+      url: "ws://106.15.226.6:12345", 
     })
 
     //连接成功
     wx.onSocketOpen(function () {
       wx.sendSocketMessage({
-       // data:JSON.stringify(sub_depth)
+        data:'01234567890123456789012345678912'+JSON.stringify(sub_depth)
       })
-    })
+    }) 
 
     //接收数据
     wx.onSocketMessage(function (data) {
       var raw_data = data.data
-      var subdata = raw_data.substr(1, raw_data.length - 2)
-      var jsondata = JSON.parse(subdata)
-      console.log("data: " + jsondata.channel)
-      that.setData({
-        array: jsondata.data
-      });
+      var subdata = raw_data.substr(32,raw_data.lenth);
+      //console.log(":2 " + subdata) 
+      var par_json = JSON.parse(subdata);
+      var jdata = par_json.data;
+      var lp = jdata.lp;
+      if(lp == 'okex'){
+        var tasks = [];
+        tasks[0] = jdata.depth.ask5;
+        tasks[1] = jdata.depth.ask4;
+        tasks[2] = jdata.depth.ask3;
+        tasks[3] = jdata.depth.ask2;
+        tasks[4] = jdata.depth.ask1;
+        tasks.forEach(function(i){
+          i[0] = i[0].toFixed(4);
+          i[1] = i[1].toFixed(3);
+        })  
+        var tbids = [];
+        tbids[0] = jdata.depth.bid1;
+        tbids[1] = jdata.depth.bid2;
+        tbids[2] = jdata.depth.bid3;
+        tbids[3] = jdata.depth.bid4;
+        tbids[4] = jdata.depth.bid5;  
+        tbids.forEach(function (i) {
+          i[0] = i[0].toFixed(4);
+          i[1] = i[1].toFixed(3);
+        })  
+        var tarr = {};
+        tarr['asks'] = tasks;
+        tarr['bids'] = tbids;
+        console.log("tarr: " + tarr)
+
+        that.setData({
+          array: tarr
+        });
+      }
+     
     })
 
      //连接失败

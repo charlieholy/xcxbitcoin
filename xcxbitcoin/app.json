@@ -1,6 +1,5 @@
 {
   "pages":[
-    "pages/bitfinex/bitfinex",
     "pages/okex/okex",
     "pages/huopro/huopro",
     "pages/bitstamp/bitstamp",
@@ -17,12 +16,6 @@
     "selectedColor": "#09bb07",
     "color": "#353535",
     "list": [
-      {
-        "pagePath": "pages/bitfinex/bitfinex",
-        "text": "bitfinex",
-        "iconPath": "images/tab_optional_nor.png",
-        "selectedIconPath": "images/tab_optional_sel.png"
-      },
       {
         "pagePath": "pages/okex/okex",
         "text": "okex",
