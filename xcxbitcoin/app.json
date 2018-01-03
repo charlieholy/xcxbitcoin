@@ -3,6 +3,7 @@
     "pages/okex/okex",
     "pages/huopro/huopro",
     "pages/bitstamp/bitstamp",
+    "pages/kraken/kraken",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -31,6 +32,12 @@
       {
         "pagePath": "pages/bitstamp/bitstamp",
         "text": "bitstamp",
+        "iconPath": "images/tab_haogu_nor.png",
+        "selectedIconPath": "images/tab_haogu_sel.png"
+      },
+      {
+        "pagePath": "pages/kraken/kraken",
+        "text": "kraken",
         "iconPath": "images/tab_haogu_nor.png",
         "selectedIconPath": "images/tab_haogu_sel.png"
       }
